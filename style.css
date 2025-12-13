@@ -1,0 +1,110 @@
+/* Reset CSS dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden; /* Penting agar tidak ada scrollbar saat bunga muncul */
+    position: relative;
+}
+
+.container {
+    text-align: center;
+    background: white;
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    position: relative;
+    z-index: 10; /* Pastikan konten di atas bunga */
+    transition: all 0.5s ease;
+    max-width: 90%; /* Agar aman di HP */
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+}
+
+p.gombalan {
+    color: #666;
+    margin-bottom: 2.5rem;
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    position: relative;
+    min-height: 50px;
+}
+
+button {
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+#yesBtn {
+    background-color: #ff4d79;
+    color: white;
+    box-shadow: 0 4px 15px rgba(255, 77, 121, 0.4);
+    z-index: 2;
+}
+
+#yesBtn:hover {
+    background-color: #e0436b;
+    transform: scale(1.05);
+}
+
+#noBtn {
+    background-color: #e9ecef;
+    color: #333;
+    position: absolute; 
+    left: 60%;
+    z-index: 1;
+}
+
+.cute-gif {
+    width: 150px;
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+/* --- ANIMASI BUNGA --- */
+.flower {
+    position: absolute;
+    font-size: 2rem;
+    pointer-events: none;
+    user-select: none;
+    z-index: 1;
+    opacity: 0;
+    animation: bloom 2s ease-out forwards;
+}
+
+@keyframes bloom {
+    0% {
+        opacity: 0;
+        transform: scale(0.5) translateY(20px) rotate(0deg);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0) rotate(var(--rotation));
+    }
+}
