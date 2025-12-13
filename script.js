@@ -2,19 +2,16 @@ const yesBtn = document.getElementById('yesBtn');
 const noBtn = document.getElementById('noBtn');
 const heading = document.querySelector('h1');
 const gombalan = document.querySelector('.gombalan');
-const gifImage = document.querySelector('.cute-gif');
+// Kita ubah selector ini untuk menargetkan gambar di dalam polaroid
+const photoImg = document.querySelector('.my-photo'); 
 const bgMusic = document.getElementById('bgMusic');
 
-// === LOGIKA AGAR MUSIK MENYALA (Auto-play workaround) ===
-// Browser memblokir auto-play suara, jadi kita pancing saat user klik di mana saja pertama kali
+// === WORKAROUND AUTOPLAY MUSIK ===
 document.body.addEventListener('click', function() {
-    // Cek apakah musik sudah diputar atau belum
     if (bgMusic.paused) {
-        bgMusic.play().catch(error => {
-            console.log("Autoplay dicegah oleh browser, menunggu interaksi user.");
-        });
+        bgMusic.play().catch(e => console.log("Menunggu interaksi user"));
     }
-}, { once: true }); // Hanya jalan sekali
+}, { once: true });
 
 // === LOGIKA TOMBOL "NO" KABUR ===
 noBtn.addEventListener('mouseover', moveButton);
@@ -35,55 +32,59 @@ function moveButton() {
 
 // === LOGIKA TOMBOL "YES" DIKLIK ===
 yesBtn.addEventListener('click', function() {
-    // 1. Ubah Tampilan Teks & Gambar
     heading.innerText = "Yeay! I Love You! ❤️";
-    gombalan.innerText = "Makasih ya udah nerima aku. Kamu yang terbaik! ";
-    gifImage.src = "https://media.giphy.com/media/T86i6yDyOYz7J6AkcG/giphy.gif"; 
+    gombalan.innerText = "Makasih ya udah nerima aku.";
     
-    // 2. Hilangkan tombol No
+    // Mengganti foto polaroid jadi GIF senang saat diterima
+    // Kamu bisa ganti link ini dengan foto kalian berdua yang sedang senyum
+    photoImg.src = "https://media.giphy.com/media/GeimqsH0TLDt4tScGw/giphy.gif";
+    
     noBtn.style.display = 'none';
     
-    // 3. Ubah tombol Yes
     this.innerText = "Ciee jadian 🎉";
     this.disabled = true; 
     this.style.transform = 'scale(1.1)';
 
-    // 4. Jalankan efek bunga
     createFlowers();
 });
 
-// === FUNGSI MEMBUAT BUNGA ===
+// === FUNGSI BUNGA (PERMANEN) ===
 function createFlowers() {
-    const flowerEmojis = ['🌸', '🌹', '🌷', '🌻', '🌺', '💐', '❤️', '💖'];
+    const flowerEmojis = [
+        // Koleksi Bunga
+        '🌸', '🌹', '🌷', '🌻', '🌺', '💐', '🌼', '💮', '🪷', '🏵️', 
+        // Koleksi Hati & Romantis
+        '❤️', '💖', '💕', '💞', '💓', '💗', '💘', '💝', '💟', '❣️',
+        // Hiasan Tambahan (Kupu-kupu, Kilauan, dll)
+        '✨', '🦋', '💌', '🧸', '🎀'
+    ];
+    
     const numberOfFlowers = 50; 
 
     for (let i = 0; i < numberOfFlowers; i++) {
         const flower = document.createElement('div');
         flower.classList.add('flower');
-        
-        // Pilih emoji acak
         flower.innerText = flowerEmojis[Math.floor(Math.random() * flowerEmojis.length)];
 
-        // Posisi acak
+        // Posisi Acak
         flower.style.left = Math.random() * 100 + 'vw';
         flower.style.top = Math.random() * 100 + 'vh';
         
-        // Ukuran acak
+        // Ukuran Acak
         const scale = Math.random() * 1.5 + 1;
         flower.style.fontSize = scale + 'rem';
 
-        // Rotasi acak
+        // Rotasi Acak
         const rotation = Math.random() * 360;
         flower.style.setProperty('--rotation', rotation + 'deg');
 
-        // Delay animasi acak
+        // Delay Animasi Acak
         flower.style.animationDelay = Math.random() * 1.5 + 's';
 
+        // Masukkan ke body
         document.body.appendChild(flower);
 
-        // Hapus elemen setelah selesai animasi (5 detik)
-        setTimeout(() => {
-            flower.remove();
-        }, 5000); 
+        // KITA HAPUS BAGIAN setTimeout DI SINI
+        // Sekarang bunga tidak akan pernah dihapus oleh sistem
     }
 }

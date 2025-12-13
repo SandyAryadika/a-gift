@@ -10,50 +10,108 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    
+    /* --- PENGATURAN BACKGROUND GAMBAR --- */
+    
+    /* 1. Memanggil gambar dari folder images */
+    background-image: url('images/background.jpg');
+    
+    /* 2. Agar gambar selalu memenuhi layar (HP maupun Laptop) */
+    background-size: cover; 
+    
+    /* 3. Agar gambar selalu rata tengah */
+    background-position: center;
+    
+    /* 4. Agar gambar tidak berulang-ulang kalau layar kegedean */
+    background-repeat: no-repeat;
+    
+    /* Opsional: Menambahkan lapisan gelap tipis (overlay) supaya kotak putih lebih "pop-up" */
+    /* Kalau mau terang, hapus baris 'background-color' dan 'background-blend-mode' di bawah ini */
+    background-color: rgba(0, 0, 0, 0.3); 
+    background-blend-mode: overlay;
+
+    /* --- AKHIR PENGATURAN BACKGROUND --- */
+
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    overflow: hidden; /* Penting agar tidak ada scrollbar saat bunga muncul */
+    overflow: hidden;
     position: relative;
 }
 
 .container {
     text-align: center;
     background: white;
-    padding: 3rem;
-    border-radius: 20px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    padding: 1.5rem; /* Padding pas agar tidak terlalu lebar */
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.231);
     position: relative;
-    z-index: 10; /* Pastikan konten di atas bunga */
+    z-index: 10;
     transition: all 0.5s ease;
-    max-width: 90%; /* Agar aman di HP */
+    max-width: 90%;
+    width: 350px; /* Lebar ideal untuk HP & Laptop */
 }
 
+/* --- GAYA POLAROID --- */
+.polaroid {
+    background: #e0436b;
+    padding: 8px 8px 25px 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transform: rotate(-3deg);
+    margin-bottom: 15px;
+    display: inline-block;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #e0e0e0;
+}
+
+.polaroid:hover {
+    transform: rotate(0deg) scale(1.05);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    z-index: 15;
+}
+
+.my-photo {
+    width: 100%;
+    max-width: 150px; /* Ukuran foto pas, tidak kegedean */
+    height: auto;
+    display: block;
+    border-radius: 0;
+}
+
+.caption {
+    margin-top: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+/* --- TEXT & BUTTONS --- */
 h1 {
     color: #333;
-    margin-bottom: 1.5rem;
-    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
 }
 
 p.gombalan {
     color: #666;
-    margin-bottom: 2.5rem;
-    font-size: 1.1rem;
-    line-height: 1.5;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    line-height: 1.4;
 }
 
 .button-group {
     display: flex;
-    justify-content: center;
-    gap: 20px;
+    justify-content: center; /* Posisi tombol rata tengah */
+    gap: 15px; /* Jarak antar tombol */
     position: relative;
-    min-height: 50px;
+    min-height: 40px;
+    flex-wrap: wrap; /* Agar aman di HP layar sangat kecil */
 }
 
 button {
-    padding: 12px 30px;
-    font-size: 1.1rem;
+    padding: 10px 20px;
+    font-size: 1rem;
     border: none;
-    border-radius: 50px;
+    border-radius: 10px;
     cursor: pointer;
     transition: transform 0.2s, background-color 0.2s;
     font-weight: bold;
@@ -73,18 +131,21 @@ button {
 }
 
 #noBtn {
-    background-color: #e9ecef;
-    color: #333;
-    position: absolute; 
-    left: 60%;
+    background-color: #7d7d7d;
+    color: #EEEEEE;
     z-index: 1;
+    
+    /* Menambahkan Border */
+    border: 2px solid #EEEEEE; /* Ketebalan 2px, garis solid, warna mengikuti teks */
+    
+    /* Opsional: Efek agar border berubah warna saat kursor diarahkan (sebelum tombol kabur) */
+    transition: all 0.3s ease;
 }
 
-.cute-gif {
-    width: 150px;
-    height: auto;
-    margin-bottom: 20px;
-    border-radius: 10px;
+#noBtn:hover {
+    background-color: #EEEEEE;
+    color: #7d7d7d;
+    border: 2px solid #7d7d7d;
 }
 
 /* --- ANIMASI BUNGA --- */
