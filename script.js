@@ -37,7 +37,7 @@ yesBtn.addEventListener('click', function() {
     
     // Mengganti foto polaroid jadi GIF senang saat diterima
     // Kamu bisa ganti link ini dengan foto kalian berdua yang sedang senyum
-    photoImg.src = "https://media.giphy.com/media/GeimqsH0TLDt4tScGw/giphy.gif";
+   photoImg.src = "images/hug.gif";
     
     noBtn.style.display = 'none';
     
