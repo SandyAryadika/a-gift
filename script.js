@@ -35,15 +35,34 @@ yesBtn.addEventListener('click', function() {
     heading.innerText = "I Love You! ❤️";
     gombalan.innerText = "Makasih yaaa udah nerima Sandy";
     
-    // Mengganti foto polaroid jadi GIF senang saat diterima
-    // Kamu bisa ganti link ini dengan foto kalian berdua yang sedang senyum
-   photoImg.src = "images/hug.gif";
+    // Ganti foto jadi GIF pelukan
+    photoImg.src = "images/hug.gif";
     
     noBtn.style.display = 'none';
     
-    this.innerText = "Yeayyy jadiannn 🎉";
-    this.disabled = true; 
+    // --- MODIFIKASI UNTUK WHATSAPP ---
+    
+    // 1. Ubah teks tombol agar dia tau langkah selanjutnya
+    this.innerText = "Kirim Pesan ke WA 💬"; 
+    
+    // 2. PENTING: Baris 'disabled' harus DIHAPUS agar tombol bisa diklik lagi
+    // this.disabled = true;  <-- (Jangan dipakai)
+    
     this.style.transform = 'scale(1.1)';
+
+    // 3. Fungsi baru: Saat tombol diklik lagi, buka WhatsApp
+    this.onclick = function() {
+        // Ganti XXXXX dengan nomor HP kamu (pake 62, jangan 08)
+        const nomorWA = "6285157994233"; 
+        
+        // Pesan otomatis yang akan tertulis
+        const pesan = "Hai Sandy, aku udah buka webnya. Jawabannya: Aku mau kok! 🥰";
+        
+        // Membuka link WhatsApp
+        window.open(`https://wa.me/${nomorWA}?text=${encodeURIComponent(pesan)}`, "_blank");
+    };
+    
+    // ---------------------------------
 
     createFlowers();
 });
