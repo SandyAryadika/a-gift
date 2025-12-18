@@ -92,12 +92,13 @@ h1 {
 }
 
 p.gombalan {
-    color: #666;
+    color: #555; /* Warna sedikit digelapkan biar kontras */
     margin-bottom: 1.5rem;
-    font-size: 1rem;
-    line-height: 1.4;
+    
+    /* UBAH BAGIAN INI */
+    font-size: 0.95rem; /* Dikecilkan dikit dari 1rem jadi 0.95rem */
+    line-height: 1.6; /* Jarak antar baris diperlonggar biar lega */
 }
-
 .button-group {
     display: flex;
     justify-content: center; /* Posisi tombol rata tengah */

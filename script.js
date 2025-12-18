@@ -32,8 +32,8 @@ function moveButton() {
 
 // === LOGIKA TOMBOL "YES" DIKLIK ===
 yesBtn.addEventListener('click', function() {
-    heading.innerText = "Yeay! I Love You! ❤️";
-    gombalan.innerText = "Makasih ya udah nerima aku.";
+    heading.innerText = "I Love You! ❤️";
+    gombalan.innerText = "Makasih yaaa udah nerima Sandy";
     
     // Mengganti foto polaroid jadi GIF senang saat diterima
     // Kamu bisa ganti link ini dengan foto kalian berdua yang sedang senyum
@@ -41,7 +41,7 @@ yesBtn.addEventListener('click', function() {
     
     noBtn.style.display = 'none';
     
-    this.innerText = "Ciee jadian 🎉";
+    this.innerText = "Yeayyy jadiannn 🎉";
     this.disabled = true; 
     this.style.transform = 'scale(1.1)';
 
