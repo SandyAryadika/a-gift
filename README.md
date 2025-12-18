@@ -21,4 +21,5 @@ Pastikan struktur file kamu seperti ini agar kode berjalan lancar:
 ├── 📄 script.js         // Logika tombol & animasi (Edit GIF akhir di sini)
 ├── 📄 musik.mp3         // File lagu (Wajib ada)
 ├── 📄 README.md         // File dokumentasi ini
-└── 📁 images/           // Folder khusus gambar
+├── 📁 images/           // Folder khusus gambar
+└── 📄 .gitignore           
