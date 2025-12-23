@@ -53,7 +53,7 @@ yesBtn.addEventListener('click', function() {
     // 3. Fungsi baru: Saat tombol diklik lagi, buka WhatsApp
     this.onclick = function() {
         // Ganti XXXXX dengan nomor HP kamu (pake 62, jangan 08)
-        const nomorWA = "6285157994233"; 
+        const nomorWA = "6281242338464"; 
         
         // Pesan otomatis yang akan tertulis
         const pesan = "Hai Sandy, aku udah buka webnya. Jawabannya: Aku mau kok! 🥰";
