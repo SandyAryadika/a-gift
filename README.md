@@ -23,3 +23,5 @@ Pastikan struktur file kamu seperti ini agar kode berjalan lancar:
 ├── 📄 README.md         // File dokumentasi ini
 ├── 📁 images/           // Folder khusus gambar
 └── 📄 .gitignore           
+
+dan aku mendapatkannya!
